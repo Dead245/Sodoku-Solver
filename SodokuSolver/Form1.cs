@@ -35,7 +35,7 @@ namespace SodokuSolver
         private void Form1_Load(object sender, EventArgs e)
         {
             //Create Button Grid
-            Point buttonLoc = button1.Location;
+            Point buttonLoc = slotButton.Location;
             int currentXOffset = buttonOffset.X;
             int currentYOffset = 0;
 
@@ -54,7 +54,7 @@ namespace SodokuSolver
                 newButton.FlatAppearance.BorderSize = 0;
                 newButton.BackColor = Color.Transparent;
                 newButton.Location = new Point(
-                    button1.Location.X + currentXOffset, button1.Location.Y + currentYOffset);
+                    slotButton.Location.X + currentXOffset, slotButton.Location.Y + currentYOffset);
                 newButton.BringToFront();
                 currentXOffset += buttonOffset.X;
             }
