@@ -1,0 +1,11 @@
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\bin\Debug\SodokuSolver.exe.config
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\bin\Debug\SodokuSolver.exe
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\bin\Debug\SodokuSolver.pdb
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.csproj.AssemblyReference.cache
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.csproj.SuggestedBindingRedirects.cache
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.Properties.Resources.resources
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.csproj.GenerateResource.cache
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.csproj.CoreCompileInputs.cache
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.exe
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.pdb
+C:\Users\Colton\source\repos\SodokuSolver\SodokuSolver\obj\Debug\SodokuSolver.Form1.resources
