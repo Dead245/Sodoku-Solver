@@ -15,8 +15,8 @@ namespace SodokuSolver
     public partial class Form1 : Form
     {
         int amountOfSlots = 81;
-        Point buttonOffset = new Point(31,31);
-        Size buttonSize = new Size(28, 28);
+        Point slotOffset = new Point(31,31);
+        Size slotSize = new Size(28, 28);
         public Form1()
         {
             InitializeComponent();
@@ -36,27 +36,35 @@ namespace SodokuSolver
         {
             //Create Button Grid
             Point buttonLoc = slotButton.Location;
-            int currentXOffset = buttonOffset.X;
+            int currentXOffset = slotOffset.X;
             int currentYOffset = 0;
 
             for (int i = 1; i < amountOfSlots; i++)
             {    
                 Button newButton = new Button();
                 this.Controls.Add(newButton);
+                Label newLabel = new Label();
+                this.Controls.Add(newLabel);
 
                 if (i % 9 == 0) {
-                    currentYOffset += buttonOffset.Y;
+                    currentYOffset += slotOffset.Y;
                     currentXOffset = 0;
                 }
 
-                newButton.Size = buttonSize;
+                newButton.Size = slotSize;
                 newButton.FlatStyle= FlatStyle.Flat;
                 newButton.FlatAppearance.BorderSize = 0;
                 newButton.BackColor = Color.Transparent;
                 newButton.Location = new Point(
                     slotButton.Location.X + currentXOffset, slotButton.Location.Y + currentYOffset);
                 newButton.BringToFront();
-                currentXOffset += buttonOffset.X;
+
+                newLabel.Size = slotSize;
+                newLabel.Location = new Point(
+                    resultLabel.Location.X + currentXOffset, resultLabel.Location.Y + currentYOffset);
+                newLabel.BringToFront();
+
+                currentXOffset += slotOffset.X;
             }
             
         }

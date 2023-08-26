@@ -35,6 +35,7 @@
             this.slotButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.solveButton = new System.Windows.Forms.Button();
+            this.resultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -109,11 +110,21 @@
             this.solveButton.Text = "Solve";
             this.solveButton.UseVisualStyleBackColor = true;
             // 
+            // resultLabel
+            // 
+            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultLabel.Location = new System.Drawing.Point(455, 66);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(28, 28);
+            this.resultLabel.TabIndex = 7;
+            this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.slotButton);
@@ -139,6 +150,7 @@
         private System.Windows.Forms.Button slotButton;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button solveButton;
+        private System.Windows.Forms.Label resultLabel;
     }
 }
 
