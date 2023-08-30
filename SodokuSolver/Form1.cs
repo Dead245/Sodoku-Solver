@@ -14,9 +14,15 @@ namespace SodokuSolver
 {
     public partial class Form1 : Form
     {
+        List<Button> buttonList = new List<Button>();
+        List<Label> labelList = new List<Label>();
+
         int amountOfSlots = 81;
         Point slotOffset = new Point(31,31);
         Size slotSize = new Size(28, 28);
+
+        ButtonInteraction buttonInt = new ButtonInteraction();
+
         public Form1()
         {
             InitializeComponent();
@@ -36,38 +42,58 @@ namespace SodokuSolver
         {
             //Create Button Grid
             Point buttonLoc = slotButton.Location;
+            slotButton.Click += NewButton_Click;
+            buttonList.Add(slotButton);
+
+            Point labelLoc = resultLabel.Location;
+            labelList.Add(resultLabel);
+
+
             int currentXOffset = slotOffset.X;
             int currentYOffset = 0;
 
             for (int i = 1; i < amountOfSlots; i++)
-            {    
+            {
                 Button newButton = new Button();
                 this.Controls.Add(newButton);
                 Label newLabel = new Label();
                 this.Controls.Add(newLabel);
 
-                if (i % 9 == 0) {
+                buttonList.Add(newButton);
+                labelList.Add(newLabel);
+
+                if (i % 9 == 0)
+                {
                     currentYOffset += slotOffset.Y;
                     currentXOffset = 0;
                 }
-
+                
+                //Button Setup
                 newButton.Size = slotSize;
-                newButton.FlatStyle= FlatStyle.Flat;
+                newButton.FlatStyle = FlatStyle.Flat;
                 newButton.FlatAppearance.BorderSize = 0;
                 newButton.BackColor = Color.Transparent;
                 newButton.Location = new Point(
-                    slotButton.Location.X + currentXOffset, slotButton.Location.Y + currentYOffset);
+                    buttonLoc.X + currentXOffset, buttonLoc.Y + currentYOffset);
+                newButton.Font = slotButton.Font;
+                newButton.Click += NewButton_Click;
                 newButton.BringToFront();
-
+                
+                //Label Setup
                 newLabel.Size = slotSize;
                 newLabel.Location = new Point(
-                    resultLabel.Location.X + currentXOffset, resultLabel.Location.Y + currentYOffset);
+                    labelLoc.X + currentXOffset, labelLoc.Y + currentYOffset);
                 newLabel.BringToFront();
 
                 currentXOffset += slotOffset.X;
             }
-            
+
         }
 
+        private void NewButton_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            button.Text = buttonInt.IterateButtonText(true,button.Text);
+        }
     }
 }

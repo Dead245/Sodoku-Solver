@@ -36,6 +36,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.solveButton = new System.Windows.Forms.Button();
             this.resultLabel = new System.Windows.Forms.Label();
+            this.verifyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -103,7 +104,7 @@
             // solveButton
             // 
             this.solveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solveButton.Location = new System.Drawing.Point(336, 182);
+            this.solveButton.Location = new System.Drawing.Point(335, 198);
             this.solveButton.Name = "solveButton";
             this.solveButton.Size = new System.Drawing.Size(97, 28);
             this.solveButton.TabIndex = 6;
@@ -119,11 +120,22 @@
             this.resultLabel.TabIndex = 7;
             this.resultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // verifyButton
+            // 
+            this.verifyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verifyButton.Location = new System.Drawing.Point(335, 164);
+            this.verifyButton.Name = "verifyButton";
+            this.verifyButton.Size = new System.Drawing.Size(97, 28);
+            this.verifyButton.TabIndex = 8;
+            this.verifyButton.Text = "Verify";
+            this.verifyButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.verifyButton);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.solveButton);
             this.Controls.Add(this.pictureBox2);
@@ -151,6 +163,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button solveButton;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.Button verifyButton;
     }
 }
 
