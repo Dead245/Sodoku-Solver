@@ -10,45 +10,20 @@ namespace SodokuSolver
     internal class Validator
     {
         //Find all # in board and check to see if any overlap the row, column, or 3x3 grid
-        public bool validateNewBoard(List<string> board) {
-            
-            
-            //x is column | y is row
+        public bool validateNewBoard(char[,] board) {
 
-            //Checks Rows
+
+            //Check
+            var set = new HashSet<char>();
             for (int y = 0; y < 9; y++)
             {
-                HashSet<string> rowVal = new HashSet<string>();
                 for (int x = 0; x < 9; x++)
                 {
-                    int position = (y * 9) + x;
-                    if (!rowVal.Add(board[position]) && board[position] != "") {
-                        return false;
-                    }
+                   
                 }
-                
             }
 
-            //Checks Columns
-            for (int y = 0; y < 9; y++)
-            {
-                HashSet<string> rowVal = new HashSet<string>();
-                for (int x = 0; x < 9; x++)
-                {
-                    int position = (x * 9) + y;
-                    if (!rowVal.Add(board[position]) && board[position] != "")
-                    {
-                        return false;
-                    }
-                }
-
-            }
-
-            //Checks Grids
-            for (int i = 1; i <= 9; i++)
-            {
-                checkSubGrid(i);
-            }
+            
 
 
             return true;

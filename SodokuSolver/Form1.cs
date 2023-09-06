@@ -23,7 +23,7 @@ namespace SodokuSolver
         ButtonInteraction buttonIntr = new ButtonInteraction();
         Validator validtr = new Validator();
 
-        List<string> intList = new List<string>();
+        
 
         public Form1()
         {
@@ -106,10 +106,23 @@ namespace SodokuSolver
         private void verifyButton_Click(object sender, EventArgs e)
         {   
             //Turn buttonList into list of text
-            var intIEnumerable = buttonList.Select(x => x.Text);
-            List<string> intList = intIEnumerable.ToList();
+            char[,] boardArray = new char[9,9];
+            for (int y = 0; y < 9; y++) //column
+            {
+                for (int x = 0; x < 9; x++) //row
+                {
+                    if (buttonList[(y * 9) + x].Text != "")
+                    {
+                        boardArray[x, y] = buttonList[(y * 9) + x].Text.ToCharArray()[0];
+                    }
+                    else {
+                        boardArray[x, y] = ' ';
+                    }
 
-            bool validBoard = validtr.validateNewBoard(intList);
+                }
+            }
+
+            bool validBoard = validtr.validateNewBoard(boardArray);
             
             if (validBoard)
             {
