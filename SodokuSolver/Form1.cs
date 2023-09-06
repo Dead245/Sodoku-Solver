@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace SodokuSolver
 {
@@ -21,7 +20,10 @@ namespace SodokuSolver
         Point slotOffset = new Point(31,31);
         Size slotSize = new Size(28, 28);
 
-        ButtonInteraction buttonInt = new ButtonInteraction();
+        ButtonInteraction buttonIntr = new ButtonInteraction();
+        Validator validtr = new Validator();
+
+        List<string> intList = new List<string>();
 
         public Form1()
         {
@@ -40,7 +42,8 @@ namespace SodokuSolver
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Create Button Grid
+            //Grid Creation
+            { 
             Point buttonLoc = slotButton.Location;
             slotButton.Click += NewButton_Click;
             buttonList.Add(slotButton);
@@ -52,48 +55,69 @@ namespace SodokuSolver
             int currentXOffset = slotOffset.X;
             int currentYOffset = 0;
 
-            for (int i = 1; i < amountOfSlots; i++)
-            {
-                Button newButton = new Button();
-                this.Controls.Add(newButton);
-                Label newLabel = new Label();
-                this.Controls.Add(newLabel);
-
-                buttonList.Add(newButton);
-                labelList.Add(newLabel);
-
-                if (i % 9 == 0)
+                for (int i = 1; i < amountOfSlots; i++)
                 {
-                    currentYOffset += slotOffset.Y;
-                    currentXOffset = 0;
-                }
-                
-                //Button Setup
-                newButton.Size = slotSize;
-                newButton.FlatStyle = FlatStyle.Flat;
-                newButton.FlatAppearance.BorderSize = 0;
-                newButton.BackColor = Color.Transparent;
-                newButton.Location = new Point(
-                    buttonLoc.X + currentXOffset, buttonLoc.Y + currentYOffset);
-                newButton.Font = slotButton.Font;
-                newButton.Click += NewButton_Click;
-                newButton.BringToFront();
-                
-                //Label Setup
-                newLabel.Size = slotSize;
-                newLabel.Location = new Point(
-                    labelLoc.X + currentXOffset, labelLoc.Y + currentYOffset);
-                newLabel.BringToFront();
+                    Button newButton = new Button();
+                    this.Controls.Add(newButton);
+                    Label newLabel = new Label();
+                    this.Controls.Add(newLabel);
 
-                currentXOffset += slotOffset.X;
+                    buttonList.Add(newButton);
+                    labelList.Add(newLabel);
+
+                    if (i % 9 == 0)
+                    {
+                        currentYOffset += slotOffset.Y;
+                        currentXOffset = 0;
+                    }
+
+                    //Button Setup
+                    newButton.Size = slotSize;
+                    newButton.FlatStyle = FlatStyle.Flat;
+                    newButton.FlatAppearance.BorderSize = 0;
+                    newButton.BackColor = Color.Transparent;
+                    newButton.Location = new Point(
+                        buttonLoc.X + currentXOffset, buttonLoc.Y + currentYOffset);
+                    newButton.Font = slotButton.Font;
+                    newButton.Click += NewButton_Click;
+                    newButton.BringToFront();
+
+                    //Label Setup
+                    newLabel.Size = slotSize;
+                    newLabel.Location = new Point(
+                        labelLoc.X + currentXOffset, labelLoc.Y + currentYOffset);
+                    newLabel.Font = resultLabel.Font;
+                    newLabel.TextAlign = ContentAlignment.MiddleCenter;
+                    newLabel.BringToFront();
+
+                    currentXOffset += slotOffset.X;
+                }
             }
 
+            
         }
 
         private void NewButton_Click(object sender, EventArgs e)
         {
             var button = sender as Button;
-            button.Text = buttonInt.IterateButtonText(true,button.Text);
+            button.Text = buttonIntr.IterateButtonText(button.Text);
+        }
+
+        private void verifyButton_Click(object sender, EventArgs e)
+        {   
+            //Turn buttonList into list of text
+            var intIEnumerable = buttonList.Select(x => x.Text);
+            List<string> intList = intIEnumerable.ToList();
+
+            bool validBoard = validtr.validateNewBoard(intList);
+            
+            if (validBoard)
+            {
+                verifyButton.Text = "Validated!";
+                //verifyButton.Enabled = false;
+            } else {
+                verifyButton.Text = "Not Valid!";
+            }
         }
     }
 }

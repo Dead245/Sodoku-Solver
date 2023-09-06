@@ -10,12 +10,10 @@ namespace SodokuSolver
     {
         List<string> iterations = new List<string> {"","1","2","3","4","5","6","7","8","9"};
         
-        public string IterateButtonText(bool direction,string currentIteration) {
-            //false for left, true for right
+        public string IterateButtonText(string currentIteration) {
 
             int currentIndex = iterations.IndexOf(currentIteration);
 
-            if (direction) {
                 if (currentIndex == iterations.Count - 1)
                 {
                     currentIndex = 0;
@@ -23,16 +21,6 @@ namespace SodokuSolver
                 else {
                     currentIndex++;
                 }
-            } else {
-                if (currentIndex == 0)
-                {
-                    currentIndex = iterations.Count - 1;
-                }
-                else
-                {
-                    currentIndex--;
-                }
-            }
 
             return iterations[currentIndex];
         }

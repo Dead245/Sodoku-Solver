@@ -129,6 +129,7 @@
             this.verifyButton.TabIndex = 8;
             this.verifyButton.Text = "Verify";
             this.verifyButton.UseVisualStyleBackColor = true;
+            this.verifyButton.Click += new System.EventHandler(this.verifyButton_Click);
             // 
             // Form1
             // 
