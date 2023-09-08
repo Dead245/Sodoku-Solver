@@ -104,9 +104,20 @@ namespace SodokuSolver
         }
 
         private void verifyButton_Click(object sender, EventArgs e)
-        {   
+        {
+            validateBoard();
+        }
+        private void solveButton_Click(object sender, EventArgs e)
+        {
+            //Double check board is valid
+            if (!validateBoard()) {
+                return;
+            }
+
+        }
+        private bool validateBoard() {
             //Turn buttonList into list of text
-            char[,] boardArray = new char[9,9];
+            char[,] boardArray = new char[9, 9];
             for (int y = 0; y < 9; y++) //column
             {
                 for (int x = 0; x < 9; x++) //row
@@ -115,7 +126,8 @@ namespace SodokuSolver
                     {
                         boardArray[x, y] = buttonList[(y * 9) + x].Text.ToCharArray()[0];
                     }
-                    else {
+                    else
+                    {
                         boardArray[x, y] = ' ';
                     }
 
@@ -123,14 +135,20 @@ namespace SodokuSolver
             }
 
             bool validBoard = validtr.validateNewBoard(boardArray);
-            
+
             if (validBoard)
             {
-                verifyButton.Text = "Validated!";
-                //verifyButton.Enabled = false;
-            } else {
+                verifyButton.Text = "Valid!";
+                solveButton.Enabled = true;
+                return true;
+            }
+            else
+            {
                 verifyButton.Text = "Not Valid!";
+                solveButton.Enabled = false;
+                return false;
             }
         }
+
     }
 }

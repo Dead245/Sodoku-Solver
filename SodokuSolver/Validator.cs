@@ -12,7 +12,6 @@ namespace SodokuSolver
         //Find all # in board and check to see if any overlap the row, column, or 3x3 grid
         public bool validateNewBoard(char[,] board) {
 
-
             //Check Rows & Columns & Subgrids for Duplicate Numbers
             var rowSet = new HashSet<char>();
             var columnSet = new HashSet<char>();
@@ -28,7 +27,8 @@ namespace SodokuSolver
                         return false;
                     }   //Subgrid Check
                     if (!boxSet.Add(board[(int)(3 * Math.Floor(y / 3.0) + Math.Floor(x / 3.0)), ((y * 3) % 9) + (x % 3)]) && 
-                        board[(int)(3 * Math.Floor(y / 3.0) + Math.Floor(x / 3.0)), ((y * 3) % 9) + (x % 3)] != ' ') {
+                        board[(int)(3 * Math.Floor(y / 3.0) + Math.Floor(x / 3.0)), ((y * 3) % 9) + (x % 3)] != ' ')
+                    {
                         return false;
                     }
                 }
