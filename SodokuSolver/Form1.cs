@@ -22,7 +22,7 @@ namespace SodokuSolver
 
         ButtonInteraction buttonIntr = new ButtonInteraction();
         Validator validtr = new Validator();
-
+        Solver solvr = new Solver();
         
 
         public Form1()
@@ -105,17 +105,36 @@ namespace SodokuSolver
 
         private void verifyButton_Click(object sender, EventArgs e)
         {
-            validateBoard();
+            validateBoard(getBoard());
         }
         private void solveButton_Click(object sender, EventArgs e)
         {
             //Double check board is valid
-            if (!validateBoard()) {
+            if (!validateBoard(getBoard())) {
                 return;
             }
 
+            solvr.Solve(getBoard());
         }
-        private bool validateBoard() {
+        private bool validateBoard(char[,] board) {
+
+            bool validBoard = validtr.validateNewBoard(board);
+
+            if (validBoard)
+            {
+                verifyButton.Text = "Valid!";
+                solveButton.Enabled = true;
+                return true;
+            }
+            else
+            {
+                verifyButton.Text = "Not Valid!";
+                solveButton.Enabled = false;
+                return false;
+            }
+        }
+
+        private char[,] getBoard() {
             //Turn buttonList into list of text
             char[,] boardArray = new char[9, 9];
             for (int y = 0; y < 9; y++) //column
@@ -134,20 +153,7 @@ namespace SodokuSolver
                 }
             }
 
-            bool validBoard = validtr.validateNewBoard(boardArray);
-
-            if (validBoard)
-            {
-                verifyButton.Text = "Valid!";
-                solveButton.Enabled = true;
-                return true;
-            }
-            else
-            {
-                verifyButton.Text = "Not Valid!";
-                solveButton.Enabled = false;
-                return false;
-            }
+            return boardArray;
         }
 
     }
