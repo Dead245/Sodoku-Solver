@@ -162,13 +162,7 @@ namespace SodokuSolver
             char[,] originalBoard = getBoard();
 
             //Set numbered cells into Output Zone
-            for (int x = 0; x < 9; x++)
-            {
-                for (int y = 0; y < 9; y++)
-                {
-                    labelList[(y * 9) + x].Text = originalBoard[x, y].ToString();
-                }
-            }
+            
             //Get Solved Board
             char[,] solvedBoard = solvr.Solve(originalBoard);
             //Set remaining spaces in Output Zone as different colored numbers
