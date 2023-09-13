@@ -105,7 +105,7 @@
             // 
             this.solveButton.Enabled = false;
             this.solveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solveButton.Location = new System.Drawing.Point(335, 198);
+            this.solveButton.Location = new System.Drawing.Point(344, 200);
             this.solveButton.Name = "solveButton";
             this.solveButton.Size = new System.Drawing.Size(97, 28);
             this.solveButton.TabIndex = 6;
@@ -125,7 +125,7 @@
             // verifyButton
             // 
             this.verifyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.verifyButton.Location = new System.Drawing.Point(335, 164);
+            this.verifyButton.Location = new System.Drawing.Point(344, 166);
             this.verifyButton.Name = "verifyButton";
             this.verifyButton.Size = new System.Drawing.Size(97, 28);
             this.verifyButton.TabIndex = 8;
